@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 export default function Header() {
@@ -19,7 +20,11 @@ export default function Header() {
   }, []);
 
   return (
-    <nav className={`sticky top-0 z-10 flex flex-col items-center px-20 pt-4 pb-4 bg-pink-200 max-md:px-5 max-md:max-w-full ${scrolled ? 'shadow-md' : ''}`}>
+    <nav
+      className={`sticky top-0 z-10 flex flex-col items-center px-20 pt-4 pb-4 bg-pink-200 max-md:px-5 max-md:max-w-full ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
       <div className="flex gap-5 justify-between self-start max-w-full text-xs text-pink-200 whitespace-nowrap w-screen max-md:flex-wrap">
         <img
           src="../../assets/Logo-VOC-1.png"
@@ -27,14 +32,14 @@ export default function Header() {
           alt="Logo"
         />
         <ul className="flex gap-8 justify-between px-7 py-2 my-auto bg-violet-500 rounded-[30px] max-md:px-5">
-          <li>
-            <button className="hover:scale-110">Beranda</button>
+          <li className="hover:scale-110">
+            <Link href="/">Beranda</Link>
           </li>
-          <li>
-            <button className="hover:scale-110">Artikel</button>
+          <li className="hover:scale-110">
+            <button >Artikel</button>
           </li>
-          <li>
-            <button className="hover:scale-110">Team</button>
+          <li className="hover:scale-110">
+            <Link href="/about" >Team</Link>
           </li>
         </ul>
       </div>
