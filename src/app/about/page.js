@@ -1,7 +1,7 @@
 import TeamMember from "@/components/TeamMember";
-import * as React from "react";
+import React from "react";
 
-function MyComponent() {
+function AboutPage() {
   return (
     <main className="flex flex-col justify-center px-10 bg-pink-200 max-md:px-5">
       <div className="flex justify-center items-center px-16 bg-pink-200 rounded-[38px] max-md:px-5 max-md:max-w-full">
@@ -22,4 +22,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default AboutPage;

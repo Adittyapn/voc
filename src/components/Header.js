@@ -36,10 +36,10 @@ export default function Header() {
             <Link href="/">Beranda</Link>
           </li>
           <li className="hover:scale-110">
-            <button >Artikel</button>
+            <Link href="/artikel">Artikel</Link>
           </li>
           <li className="hover:scale-110">
-            <Link href="/about" >Team</Link>
+            <Link href="/about">Team</Link>
           </li>
         </ul>
       </div>
