@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -9,15 +10,15 @@ const Footer = () => {
             © 2024 Voice Of Courage. All rights reserved.
           </p>
           <div className="flex mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white mr-4">
+            <Link href="/" className="text-gray-400 hover:text-white mr-4">
               Beranda
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white mr-4">
+            </Link>
+            <Link href="/artikel" className="text-gray-400 hover:text-white mr-4">
               Artikel
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </Link>
+            <Link href="/about" className="text-gray-400 hover:text-white">
               Team
-            </a>
+            </Link>
           </div>
         </div>
       </div>

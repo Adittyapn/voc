@@ -1,4 +1,5 @@
 import Testimoni from "@/components/Testimoni";
+import Link from "next/link";
 import React from "react";
 
 export default function LandingPage() {
@@ -23,9 +24,11 @@ export default function LandingPage() {
             </aside>
           </div>
         </header>
+        <Link href="chat">
         <div className="justify-center items-center px-6 py-6 mt-16 max-w-full text-2xl font-bold text-center text-pink-200 bg-violet-700 rounded-[60.5px] w-[377px] md:px-16 md:mt-10 hover:scale-110 duration-200">
-          <button>Mari Konsultasi</button>
+          <p>Mari Konsultasi</p>
         </div>
+        </Link>
         <section className="px-4 sm:px-10 py-10 md:py-20 bg-pink-200 max-w-full">
           <article className="max-w-[906px] mx-auto">
             <Testimoni />
