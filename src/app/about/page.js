@@ -3,7 +3,7 @@ import React from "react";
 
 function AboutPage() {
   return (
-    <main className="flex flex-col justify-center px-10 bg-pink-200 max-md:px-5">
+    <main className="flex flex-col justify-center px-10 bg-pink-200 max-md:px-5 min-h-screen">
       <div className="flex justify-center items-center px-16 bg-pink-200 rounded-[38px] max-md:px-5 max-md:max-w-full">
         <article className="flex flex-col mt-36 mb-52 max-w-full w-[722px] max-md:my-10">
           <h1 className="self-center text-2xl font-bold text-black">

@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react";
+import React from "react";
 import { useState } from "react";
 
 function PsychiatristList() {
@@ -27,7 +27,7 @@ function Consultation() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Message submitted: ", message);
-    setMessage(""); // Clear the input after submission
+    setMessage("");
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function TestimonialSection() {
-
   const testimonials = [
     {
       id: 1,
@@ -18,12 +17,11 @@ export default function TestimonialSection() {
       name: "Alice Johnson",
       text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
-    
   ];
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-10 mt-16 mb-4 max-w-full font-bold text-pink-200 bg-indigo-200 rounded-3xl w-full max-md:mt-10 overflow-x-auto">
-      <h2 className="text-3xl font-bold mb-8">Testimoni</h2>
+      <h2 className="text-black text-3xl font-bold mb-8">Testimoni</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial) => (
           <div

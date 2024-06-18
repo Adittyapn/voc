@@ -1,28 +1,68 @@
-import React from "react";
+"use client";
 
-function artikel() {
-  return (
-    <main className="flex flex-col justify-center px-10 py-12 bg-pink-200 max-md:px-5">
-      <section className="px-20 pt-8 pb-20 bg-pink-200 rounded-[38px] max-md:px-5 max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <aside className="flex flex-col w-[21%] max-md:ml-0 max-md:w-full">
-            <div
-              tabindex="0"
-              role="region"
-              className="shrink-0 mx-auto bg-indigo-200 h-[782px] rounded-[30px] w-[241px] max-md:mt-10"
-            />
-          </aside>
-          <section className="flex flex-col ml-5 w-[79%] max-md:ml-0 max-md:w-full">
-            <div
-              tabindex="0"
-              role="region"
-              className="shrink-0 mx-auto max-w-full bg-indigo-200 h-[782px] rounded-[35px] w-[906px] max-md:mt-10"
-            />
-          </section>
-        </div>
-      </section>
-    </main>
+import React, { useState, useEffect } from "react";
+import NewsItem from "@/components/NewsItem";
+import NewsModal from "@/components/NewsModal";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
+
+async function getNews() {
+  const res = await fetch(
+    "https://newsapi.org/v2/everything?q=keyword&apiKey=ae2eb16f81244e9ba53b6e9075a19dfb"
   );
+  const data = await res.json();
+  return data.articles || [];
 }
 
-export default artikel;
+function ArtikelPage() {
+  const [news, setNews] = useState([]);
+  const [selectedNews, setSelectedNews] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedNews = await getNews();
+      setNews(fetchedNews);
+      setIsLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  const handleNewsClick = (news) => {
+    setSelectedNews(news);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedNews(null);
+  };
+
+  return (
+    <main className="flex flex-col justify-center px-10 py-12 bg-pink-200 max-md:px-5 min-h-screen">
+      <section className="px-20 pt-8 pb-20 bg-pink-200 rounded-[38px] max-md:px-5 max-md:max-w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {isLoading ? (
+            <LoadingSkeleton />
+          ) : (
+            news.map((article, index) => (
+              <NewsItem
+                key={index}
+                article={article}
+                onClick={() => handleNewsClick(article)}
+              />
+            ))
+          )}
+        </div>
+      </section>
+
+      <NewsModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        article={selectedNews}
+      />
+    </main>
+  );
+};
+
+export default ArtikelPage;

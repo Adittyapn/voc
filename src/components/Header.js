@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-export default function Header() {
+function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,11 +26,13 @@ export default function Header() {
       }`}
     >
       <div className="flex gap-5 justify-between self-start max-w-full text-xs text-pink-200 whitespace-nowrap w-screen max-md:flex-wrap">
-        <img
-          src="../../assets/Logo-VOC-1.png"
-          className="shrink-0 max-w-full aspect-[2.08] w-[109px]"
-          alt="Logo"
-        />
+        <Link href="/">
+          <img
+            src="../../assets/Logo-VOC-1.png"
+            className="shrink-0 max-w-full aspect-[2.08] w-[109px]"
+            alt="Logo"
+          />
+        </Link>
         <ul className="flex gap-8 justify-between px-7 py-2 my-auto bg-violet-500 rounded-[30px] max-md:px-5">
           <li className="hover:scale-110">
             <Link href="/">Beranda</Link>
@@ -46,3 +48,4 @@ export default function Header() {
     </nav>
   );
 }
+export default Header;
