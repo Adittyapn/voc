@@ -1,7 +1,9 @@
-"use client"
+"use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:3001");
 
 function PsychiatristList() {
   const psychiatrists = ["Psikiater 1", "Psikiater 2", "Psikiater 3"];
@@ -19,6 +21,7 @@ function PsychiatristList() {
 
 function Consultation() {
   const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -26,9 +29,26 @@ function Consultation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Message submitted: ", message);
-    setMessage("");
+    if (message.trim() !== "") {
+      const userMessage = {
+        text: message,
+        sender: 'user',
+      };
+      socket.emit("send_message", userMessage);
+      setMessage("");
+    }
   };
+
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      console.log("Received data:", data);
+      setMessages((prevMessages) => [...prevMessages, data]);
+    });
+
+    return () => {
+      socket.off("receive_message");
+    };
+  }, []);
 
   return (
     <section className="flex flex-col px-9 pt-12 pb-7 w-full bg-indigo-200 rounded-[35px] max-md:px-5 max-md:mt-9 max-md:max-w-full">
@@ -36,6 +56,21 @@ function Consultation() {
         Konsultasi
       </h2>
       <hr className="shrink-0 mt-6 mr-7 ml-4 max-w-full h-px bg-black border border-black border-solid w-[801px] max-md:mr-2.5" />
+      <div className="flex flex-col mt-4">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`mb-2 flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+          >
+            <span className="text-sm mt-3 mr-3 text-gray-500">{msg.sender === 'user' ? 'You' : 'Psikiater'}</span>
+            <span
+              className={`inline-block px-3 py-2 rounded-lg ${msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
+            >
+              {msg.text}
+            </span>
+          </div>
+        ))}
+      </div>
       <div className="flex gap-3.5 mt-[601px] max-md:flex-wrap max-md:mt-10">
         <form onSubmit={handleSubmit} className="flex w-full">
           <input
