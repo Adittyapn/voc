@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://voc-server.vercel.app/");
 
 function PsychiatristList() {
   const psychiatrists = ["Psikiater 1", "Psikiater 2", "Psikiater 3"];
