@@ -11,9 +11,9 @@ function AboutPage() {
           </h1>
           <section className="mt-24 max-md:mt-10 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-              <TeamMember name="Nama 1" role="Role 1" github="https://github.com/user1" linkedin="https://linkedin.com/in/user1" />
-              <TeamMember name="Nama 2" role="Role 2" github="https://github.com/user2" linkedin="https://linkedin.com/in/user2" />
-              <TeamMember name="Nama 3" role="Role 3" github="https://github.com/user3" linkedin="https://linkedin.com/in/user3" />
+              <TeamMember name="Daffa Dwi Haykal" role="Front-End" github="https://github.com/dffdwi" linkedin="https://www.linkedin.com/in/daffadwihaykal/" />
+              <TeamMember name="Aditya Pratama Nugraha" role="Back-End" github="https://github.com/Adittyapn" linkedin="https://linkedin.com/in/user2" />
+              <TeamMember name="Muhammad Alfitrotillah" role="Manager Project" github="https://github.com/alfitrotillahm" linkedin="https://linkedin.com/in/user3" />
             </div>
           </section>
         </article>
