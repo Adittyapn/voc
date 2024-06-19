@@ -2,6 +2,14 @@ import Testimoni from "@/components/Testimoni";
 import Link from "next/link";
 import React from "react";
 
+import { Metadata } from 'next'
+
+export const Metadata = {
+  dicoding: 'email',
+  content: 'adityapn2731@gmail.com, daffadwi2003@gmail.com, alfitrotillahm@gmail.com',
+}
+
+
 export default function LandingPage() {
   return (
     <section className="flex flex-col justify-center px-4 sm:px-10 bg-pink-200">
@@ -25,9 +33,9 @@ export default function LandingPage() {
           </div>
         </header>
         <Link href="chat">
-        <div className="justify-center items-center px-6 py-6 mt-16 max-w-full text-2xl font-bold text-center text-pink-200 bg-violet-700 rounded-[60.5px] w-[377px] md:px-16 md:mt-10 hover:scale-110 duration-200">
-          <p>Mari Konsultasi</p>
-        </div>
+          <div className="justify-center items-center px-6 py-6 mt-16 max-w-full text-2xl font-bold text-center text-pink-200 bg-violet-700 rounded-[60.5px] w-[377px] md:px-16 md:mt-10 hover:scale-110 duration-200">
+            <p>Mari Konsultasi</p>
+          </div>
         </Link>
         <section className="px-4 sm:px-10 py-10 md:py-20 bg-pink-200 max-w-full">
           <article className="max-w-[906px] mx-auto">
