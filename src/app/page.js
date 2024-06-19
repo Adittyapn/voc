@@ -2,13 +2,10 @@ import Testimoni from "@/components/Testimoni";
 import Link from "next/link";
 import React from "react";
 
-import { Metadata } from 'next'
-
-export const Metadata = {
+export const metadata = {
   dicoding: 'email',
   content: 'adityapn2731@gmail.com, daffadwi2003@gmail.com, alfitrotillahm@gmail.com',
 }
-
 
 export default function LandingPage() {
   return (
